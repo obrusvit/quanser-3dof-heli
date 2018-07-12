@@ -2,7 +2,9 @@ close all;clc;
 
 %% Initial conditions
 %[travel, dtravel, elev, delev, pitch, dpitch]
-x0 = [0; 0; 0.1745; 0; -0.1047; 0];
+% x0 = [0; 0; 0.1745; 0; -0.1047; 0];
+x0 = [0; 0; 0.1745; 0; 0; 0];
+% x0 = [0; 0; 0; 0; 0; 0];
 
 %% Loading parameters of control model
 cl =    model_identified.Parameters(1).Value;
@@ -25,9 +27,6 @@ bt =    model_identified.Parameters(9).Value;
 % ct =    model_identified_custom.Parameters(8).Value;
 % bt =    model_identified_custom.Parameters(9).Value;
 
-% at = 0.4290;
-% ct = 0.0048;
-
 %% Setting up struct with identified parameters
 par_id = struct;
 par_id.cl = cl;
@@ -42,6 +41,8 @@ par_id.bt = bt;
           
 %% Setting up struct with control parameters
 par_ctrl = struct;
-par_ctrl.Omega = diag([0.40, 1.600, 2.800]);
-par_ctrl.Xi = diag([0.5698, 1.9200, 5.400]);
+% par_ctrl.Omega = diag([0.37, 1.600, 2.800]);
+% par_ctrl.Xi = diag([0.5698, 1.9200, 5.400]); % default ones
+par_ctrl.Omega = diag([0.37, 1.600, 2.800]);
+par_ctrl.Xi = diag([0.6, 1.6000, 5.400]);
 
