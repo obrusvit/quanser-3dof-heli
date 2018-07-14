@@ -1,0 +1,10 @@
+TM_4 = struct;
+TM_4.forces_real = TM_forces_real;
+TM_4.forces_sim = TM_forces_sim;
+TM_4.theta_ref_sim = TM_theta_ref_sim;
+TM_4.voltages_experiment = TM_voltages_experiment;
+TM_4.voltages_real = TM_voltages_real;
+TM_4.voltages_sim = TM_voltages_sim;
+TM_4.x_des = TM_x_des;
+TM_4.x_real = TM_x_real;
+TM_4.x_sim = TM_x_sim;
