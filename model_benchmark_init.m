@@ -43,6 +43,7 @@ par_id.bt = bt;
 % par_ctrl = struct;
 % par_ctrl.Omega = diag([0.37, 1.600, 2.800]);
 % par_ctrl.Xi = diag([0.5698, 1.9200, 5.400]); % default ones
-par_ctrl.Omega = diag([0.37, 1.600, 2.800]);
-par_ctrl.Xi = diag([0.6, 1.6000, 5.400]);
-
+% par_ctrl.Omega = diag([0.37, 1.00, 2.800]);
+% par_ctrl.Xi = diag([0.57, 2.3, 5.70]);% not bad!
+par_ctrl.Omega = diag([0.37, 1.1, 2.800]);
+par_ctrl.Xi = diag([0.57, 2.25, 5.70]); %also not bad

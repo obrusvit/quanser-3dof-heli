@@ -23,3 +23,9 @@ travel -30, elev - 10
 voltages not saturated
 controller: nu(1); params mine
 sim init conds to zero
+
+TM5
+travel -180, elev -10
+controller: nu(1); params mine (quite well tuned)
+voltages saturated
+Notes: new force model (re-measured)
