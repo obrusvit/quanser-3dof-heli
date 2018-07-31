@@ -3,16 +3,17 @@ FileName      = 'heli_model';       % File describing the model structure.
 Order         = [3 2 6];           % Model orders [ny nu nx].
 %Parameters    = [0; 0; 1.1310; 0.0361; 0.0829; 0; -0.3310; 0; 0];
 %Parameters    = [0.2025; 0; 1.3623; -0.3787; 0.0447; 0; -0.4638; 0.0076; 0];
-Parameters    = [0; 0; 1.1310; 0; 0.01; 0; 0; 0; 0];
+% Parameters    = [0; 0; 1.1310; 0; 0.0829; 0; 0; 0; 0];
+Parameters = [0; 0; 0.897774292800465; 0.262149659708340; 0.0422113991393604; 0.247103079580339; 0; 0; 0];
 
-
-% InitialStates = [0; 0; 0; 0; 0; 0];            % Initial initial states.
+InitialStates = [0; 0; 0; 0; 0; 0];            % Initial initial states.
 
 %id_outputs_ic_a
 % InitialStates = [0; 0; 0.182543713758391; 0; 0.266912657092102;0]
 
 %id_outputs_elev10b
-InitialStates = [0; 0; 0.1749; 0; 0; 0];            
+% InitialStates = [0; 0; 0.1749; 0; 0; 0];            
+
 
 Ts            = 0;                 % Time-continuous system.
 model = idnlgrey(FileName,Order,Parameters,InitialStates);
@@ -27,9 +28,9 @@ model = setpar(model, 'Minimum', {0; -10; -10; -5; 0; -10; -10; 0; -10});
 model = setpar(model, 'Maximum', {10; 10; 10; 5; 10; 10; 10; 10; 10});
 
 % model.Parameters(1).Fixed = true;
-% model.Parameters(3).Fixed = true;
-% model.Parameters(4).Fixed = true;
-% model.Parameters(5).Fixed = true;
+model.Parameters(3).Fixed = true;
+model.Parameters(4).Fixed = true;
+model.Parameters(5).Fixed = true;
 % model.Parameters(7).Fixed = true;
 % model.Parameters(8).Fixed = true;
     
@@ -52,7 +53,7 @@ model = setpar(model, 'Maximum', {10; 10; 10; 5; 10; 10; 10; 10; 10});
 % tm_5_in = [TM_5.forces_real(5000:end,1)/2.35 + TM_5.forces_real(5000:end,2)/2.35 TM_5.forces_real(5000:end,1)/2.35 - TM_5.forces_real(5000:end,2)/2.35];
 % data = iddata(tm_5_out, tm_5_in, 0.002);
 
-data = iddata(id_outputs_elev10b, id_inputs_elev10b, 0.002);
+data = iddata(id_outputs_MF1, id_inputs_MF1, 0.002);
 
 
 data.InputName = {'Fs', 'Fd'};
@@ -66,14 +67,14 @@ data.TimeUnit = 's';
 %% Estimate parameters
 opt = nlgreyestOptions;
 opt.Display = 'on';
-opt.SearchOption.MaxIter = 40;
+opt.SearchOption.MaxIter = 10;
 
-model_identified_elev10 = nlgreyest(data,model,opt);
+model_identified_MF1 = nlgreyest(data,model,opt);
 
 % model_identified_elev10 = pem(data, model);
  
 %% Compare results
-compare(data, model_identified_elev10);
+compare(data, model_identified);
 %compare(data, model_identified_pem);
 
  
