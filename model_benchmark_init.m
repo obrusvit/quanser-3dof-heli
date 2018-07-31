@@ -7,15 +7,15 @@ close all;clc;
 x0 = [0; 0; 0; 0; 0; 0];
 
 %% Loading parameters of control model
-cl =    model_identified.Parameters(1).Value;
-bl =    model_identified.Parameters(2).Value;
-ae1 =   model_identified.Parameters(3).Value;
-ae2 =   model_identified.Parameters(4).Value;
-ce =    model_identified.Parameters(5).Value;
-be =    model_identified.Parameters(6).Value;
-at =    model_identified.Parameters(7).Value;
-ct =    model_identified.Parameters(8).Value;
-bt =    model_identified.Parameters(9).Value;
+cl =    model_identified_MF1.Parameters(1).Value;
+bl =    model_identified_MF1.Parameters(2).Value;
+ae1 =   model_identified_MF1.Parameters(3).Value;
+ae2 =   model_identified_MF1.Parameters(4).Value;
+ce =    model_identified_MF1.Parameters(5).Value;
+be =    model_identified_MF1.Parameters(6).Value;
+at =    model_identified_MF1.Parameters(7).Value;
+ct =    model_identified_MF1.Parameters(8).Value;
+bt =    model_identified_MF1.Parameters(9).Value;
 
 % cl =    model_identified_custom.Parameters(1).Value;
 % bl =    model_identified_custom.Parameters(2).Value;
