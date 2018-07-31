@@ -28,9 +28,9 @@ model = setpar(model, 'Minimum', {0; -10; -10; -5; 0; -10; -10; 0; -10});
 model = setpar(model, 'Maximum', {10; 10; 10; 5; 10; 10; 10; 10; 10});
 
 % model.Parameters(1).Fixed = true;
-model.Parameters(3).Fixed = true;
-model.Parameters(4).Fixed = true;
-model.Parameters(5).Fixed = true;
+% model.Parameters(3).Fixed = true;
+% model.Parameters(4).Fixed = true;
+% model.Parameters(5).Fixed = true;
 % model.Parameters(7).Fixed = true;
 % model.Parameters(8).Fixed = true;
     
@@ -38,23 +38,7 @@ model.Parameters(5).Fixed = true;
  %% DATA
  %load(fullfile(matlabroot, 'toolbox', 'ident', 'iddemos', 'data', 'heli_data'));
 
-%data = iddata(id_outputs_meas3b, id_inputs_meas3b, 0.002);
-% data1 = iddata(id_outputs_meas3, id_inputs_meas3, 0.002);
-% data2 = iddata(id_outputs_meas1b, id_inputs_meas1b, 0.002);
-% data3 = iddata(id_outputs_meas2, id_inputs_meas2, 0.002);
-% data4 = iddata(id_outputs_meas1, id_inputs_meas1, 0.002);
-% data5 = iddata(id_outputs_meas1a, id_inputs_meas1a, 0.002);
-% data_ic = iddata(id_out_ic_a, id_in_ic_a, 0.002);
-
-% Test measurement during successful pi-travel
-% forces_real are divided by 2.35 to scale them to interval <-0.4, 1>
-% taken only points 5000+ because at the beginning was my mess
-% tm_5_out = TM_5.x_real(5000:end,1:3);
-% tm_5_in = [TM_5.forces_real(5000:end,1)/2.35 + TM_5.forces_real(5000:end,2)/2.35 TM_5.forces_real(5000:end,1)/2.35 - TM_5.forces_real(5000:end,2)/2.35];
-% data = iddata(tm_5_out, tm_5_in, 0.002);
-
-data = iddata(id_outputs_MF1, id_inputs_MF1, 0.002);
-
+data = iddata(id_outputs, id_inputs, 0.002);
 
 data.InputName = {'Fs', 'Fd'};
 data.InputUnit =  {'-', '-'};
@@ -69,7 +53,7 @@ opt = nlgreyestOptions;
 opt.Display = 'on';
 opt.SearchOption.MaxIter = 10;
 
-model_identified_MF1 = nlgreyest(data,model,opt);
+% model_identified_MF1 = nlgreyest(data,model,opt);
 
 % model_identified_elev10 = pem(data, model);
  
