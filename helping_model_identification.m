@@ -4,7 +4,7 @@ Order         = [3 2 6];           % Model orders [ny nu nx].
 %Parameters    = [0; 0; 1.1310; 0.0361; 0.0829; 0; -0.3310; 0; 0];
 %Parameters    = [0.2025; 0; 1.3623; -0.3787; 0.0447; 0; -0.4638; 0.0076; 0];
 % Parameters    = [0; 0; 1.1310; 0; 0.0829; 0; 0; 0; 0];
-Parameters = [0; 0; 0.897774292800465; 0.262149659708340; 0.0422113991393604; 0.247103079580339; 0; 0; 0];
+Parameters = [2.66539506373956e-07; 0.181162986000263; 0.897774292800465; 0.262149659708340; 0.0422113991393604; 0.247103079580339; 0.0299387993613542; 0.0371585044068749; 2.32610751155522];
 
 InitialStates = [0; 0; 0; 0; 0; 0];            % Initial initial states.
 
@@ -38,7 +38,9 @@ model = setpar(model, 'Maximum', {10; 10; 10; 5; 10; 10; 10; 10; 10});
  %% DATA
  %load(fullfile(matlabroot, 'toolbox', 'ident', 'iddemos', 'data', 'heli_data'));
 
+% data = iddata(id_outputs, id_inputs, 0.002);
 data = iddata(id_outputs, id_inputs, 0.002);
+
 
 data.InputName = {'Fs', 'Fd'};
 data.InputUnit =  {'-', '-'};
@@ -54,11 +56,13 @@ opt.Display = 'on';
 opt.SearchOption.MaxIter = 10;
 
 % model_identified_MF1 = nlgreyest(data,model,opt);
+model_identified_MF4 = nlgreyest(data, model, opt);
 
 % model_identified_elev10 = pem(data, model);
  
 %% Compare results
-compare(data, model_identified);
-%compare(data, model_identified_pem);
+% compare(data, model);
+% compare(data_MF1, model);
+compare(data, model_identified_MF4);
 
  
