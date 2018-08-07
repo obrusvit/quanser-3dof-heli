@@ -5,20 +5,19 @@ close all;
 t = (0:size(TM.x_des(:,1))-1)*0.002;
 
 %% Inputs
-% figure(1);
-% plot(t, TM.voltages_sim(:,1), t, TM.voltages_sim(:,2));
-% hold on;legend('\lambda des', '\lambda sim', '\lambda real')
+figure(1);
+plot(t, TM.voltages_sim(:,1), t, TM.voltages_sim(:,2));
+hold on;
+plot(t, TM.voltages_real(:,1), t, TM.voltages_real(:,2));
+legend('v_1 sim', 'v_2 sim', 'v_1 real', 'v_2 real');
+xlabel('t[s]');
+ylabel('v[V]');
 
-% plot(t, TM.voltages_real(:,1), t, TM.voltages_real(:,2));
-% legend('v_1 sim', 'v_2 sim', 'v_1 real', 'v_2 real');
-% xlabel('t[s]');
-% ylabel('v[V]');
-% 
-% %%
-% figure(2);
-% plot(t, TM.forces_sim(:,1), 'linewidth', 2);
-% hold on;
-% plot(t, TM.forces_real(:,1));
+%%
+figure(2);
+plot(t, TM.forces_sim(:,1), 'linewidth', 2);
+hold on;
+plot(t, TM.forces_real(:,1));
 
 %% states
 figure(3);
