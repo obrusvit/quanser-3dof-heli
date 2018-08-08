@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.42"
+    ComputedModelVersion    "1.43"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -66,11 +66,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"628"
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
 	Extents			[1882.0, 995.0]
-	ZoomFactor		[1.2318471337579617]
-	Offset			[0.0, 0.0]
+	ZoomFactor		[1.36]
+	Offset			[-625.14705882352939, 532.97794117647061]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -105,9 +105,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "obrusvit"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Aug 01 20:43:17 2018"
-  RTWModifiedTimeStamp	  455056879
-  ModelVersionFormat	  "1.%<AutoIncrement:42>"
+  LastModifiedDate	  "Wed Aug 08 19:17:48 2018"
+  RTWModifiedTimeStamp	  455649360
+  ModelVersionFormat	  "1.%<AutoIncrement:43>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1385,7 +1385,7 @@ Model {
   System {
     Name		    "q_heli3d_semestral_project_FL"
     Location		    [-8, -8, 1928, 1168]
-    Open		    off
+    Open		    on
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -2052,7 +2052,7 @@ Model {
 	  SID			  "607"
 	  Position		  [45, 530, 75, 560]
 	  ZOrder		  -3
-	  Value			  "12"
+	  Value			  "4"
 	}
 	Block {
 	  BlockType		  Constant
@@ -2109,7 +2109,7 @@ Model {
 	  SID			  "962"
 	  Position		  [115, 275, 145, 305]
 	  ZOrder		  15
-	  Time			  "20"
+	  Time			  "10"
 	  After			  "180"
 	  SampleTime		  "0"
 	}
@@ -2810,7 +2810,7 @@ Model {
       System {
 	Name			"Scopes"
 	Location		[-8, -8, 1928, 1168]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3021,21 +3021,21 @@ Model {
 	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
 	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
 	  "','WiredSimulink',true,'DataLoggingVariableName','ScopeData2','DataLoggingLimitDataPoints',true,'DataLoggingMaxPoin"
-	  "ts','1000000'),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-24.39"
-	  "514','MaxYLimReal','219.55627','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','219.55627','LegendVisibility','"
+	  "ts','1000000'),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-22.97"
+	  "176','MaxYLimReal','206.74582','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','206.74582','LegendVisibility','"
 	  "Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274"
 	  "509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764"
 	  "705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.2745098039215"
 	  "69 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',"
 	  "{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Radians to Degrees:1','Radians to Degrees:2','Radia"
-	  "ns to Degrees:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-5.32103','MaxYLimReal','42.61584','YLab"
+	  "ns to Degrees:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-4.59663','MaxYLimReal','41.36966','YLab"
 	  "elReal','','MinYLimMag','0.00000','MaxYLimMag','2.25889','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMa"
 	  "gPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrd"
 	  "er',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862"
 	  "745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509"
 	  "8039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'N"
 	  "umLines',3,'LineNames',{{'Radians to Degrees1:1','Radians to Degrees1:2','Radians to Degrees1:3'}},'ShowContent',tr"
-	  "ue,'Placement',2),struct('MinYLimReal','-131.9363','MaxYLimReal','-81.8629','YLabelReal','','MinYLimMag','0.00000',"
+	  "ue,'Placement',2),struct('MinYLimReal','-17.41191','MaxYLimReal','18.17977','YLabelReal','','MinYLimMag','0.00000',"
 	  "'MaxYLimMag','2.25889','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],"
 	  "'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745"
 	  "098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098"
@@ -3292,8 +3292,8 @@ Model {
 	  "45098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450"
 	  "98039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'T"
 	  "itle','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',2,'LineNames',{{'Voltag"
-	  "es_sim:1','Voltages_sim:2'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-1.41367','MaxYLimReal','12.72"
-	  "307','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','98.8553','LegendVisibility','off','XGrid',true,'YGrid',tr"
+	  "es_sim:1','Voltages_sim:2'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-4.92533','MaxYLimReal','13.11"
+	  "325','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','98.8553','LegendVisibility','off','XGrid',true,'YGrid',tr"
 	  "ue,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922]"
 	  ",'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0"
 	  ".392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;"
@@ -4804,7 +4804,7 @@ Model {
 	  ZOrder		  231
 	  ShowName		  off
 	  InputPortMap		  "u0"
-	  UpperLimit		  "1"
+	  UpperLimit		  "1.3"
 	  LowerLimit		  "-0.38"
 	}
 	Block {
@@ -4816,7 +4816,7 @@ Model {
 	  ZOrder		  251
 	  InputPortMap		  "u0"
 	  UpperLimit		  "24"
-	  LowerLimit		  "-10"
+	  LowerLimit		  "0"
 	}
 	Block {
 	  BlockType		  Scope
@@ -6379,7 +6379,7 @@ MatData {
     "    0    $          @ !       .    N $   8    (     @         %    \"     $    !     0         %  0 $0    $   !5  "
     "  ;VQD7VYA;64           !O;&1?8FQO8VL          &ES7W5N:7%U90          :7-?9&5L971E9         !I<U]M;V1E;%]C;&]S:6YG"
     "      X    X    !@    @    $          4    (     0    4    !         !     %    2$E,+3$    .    .     8    (    !@"
-    "         %    \"     $    !     0         )    \"        ,  1)! #@   #     &    \"     D\"        !0    @    !    "
+    "         %    \"     $    !     0         )    \"          ( #- #@   #     &    \"     D\"        !0    @    !    "
     " 0    $          @ !  $    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       X    P   "
     " !@    @    ) @        4    (     0    $    !          (  0      "
   }
@@ -6389,7 +6389,7 @@ MatData {
     "-T7VYA;64       X    8 0  !@    @    \"          4    (     0    $    !          4 !  -     0   \"<   !O;&1?;F%M90"
     "      :7-?9&5L971E9    &]B:F5C=%]B;&]C:P  #@   #@    &    \"     0         !0    @    !    !0    $         $     4"
     "   !(24PM,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     8 "
-    "        !0    @    !     0    $         \"0    @       #  $200 "
+    "        !0    @    !     0    $         \"0    @         \"  S0 "
   }
   DataRecord {
     Tag			    DataTag2
@@ -6397,7 +6397,7 @@ MatData {
     "-T7VYA;64       X    8 0  !@    @    \"          4    (     0    $    !          4 !  -     0   \"<   !O;&1?;F%M90"
     "      :7-?9&5L971E9    &]B:F5C=%]B;&]C:P  #@   #@    &    \"     0         !0    @    !    !0    $         $     4"
     "   !(24PM,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     8 "
-    "        !0    @    !     0    $         \"0    @       #  $200 "
+    "        !0    @    !     0    $         \"0    @         \"  S0 "
   }
   DataRecord {
     Tag			    DataTag3
@@ -6405,7 +6405,7 @@ MatData {
     "-T7VYA;64       X    8 0  !@    @    \"          4    (     0    $    !          4 !  -     0   \"<   !O;&1?;F%M90"
     "      :7-?9&5L971E9    &]B:F5C=%]B;&]C:P  #@   #@    &    \"     0         !0    @    !    !0    $         $     4"
     "   !(24PM,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     8 "
-    "        !0    @    !     0    $         \"0    @       #  $200 "
+    "        !0    @    !     0    $         \"0    @         \"  S0 "
   }
 }
 #Finite State Machines
@@ -6554,9 +6554,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 10 0 0]
     viewObj		    9
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -7208,9 +7205,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 44 0 0]
     viewObj		    43
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
