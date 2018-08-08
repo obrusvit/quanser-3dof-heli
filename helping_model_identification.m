@@ -39,30 +39,30 @@ model = setpar(model, 'Maximum', {10; 10; 10; 5; 10; 10; 10; 10; 10});
  %load(fullfile(matlabroot, 'toolbox', 'ident', 'iddemos', 'data', 'heli_data'));
 
 % data = iddata(id_outputs, id_inputs, 0.002);
-data = iddata(id_outputs, id_inputs, 0.002);
+data_MF4 = iddata(id_outputs, id_inputs, 0.002);
 
 
-data.InputName = {'Fs', 'Fd'};
-data.InputUnit =  {'-', '-'};
-data.OutputName = {'Travel', 'Elevation', 'Pitch'};
-data.OutputUnit = {'rad', 'rad', 'rad'};
-data.Tstart = 0;
-data.TimeUnit = 's';
+data_MF4.InputName = {'Fs', 'Fd'};
+data_MF4.InputUnit =  {'-', '-'};
+data_MF4.OutputName = {'Travel', 'Elevation', 'Pitch'};
+data_MF4.OutputUnit = {'rad', 'rad', 'rad'};
+data_MF4.Tstart = 0;
+data_MF4.TimeUnit = 's';
 
 
 %% Estimate parameters
 opt = nlgreyestOptions;
 opt.Display = 'on';
-opt.SearchOption.MaxIter = 10;
+opt.SearchOption.MaxIter = 20;
 
 % model_identified_MF1 = nlgreyest(data,model,opt);
-model_identified_MF4 = nlgreyest(data, model, opt);
+% model_identified_MF4 = nlgreyest(data_MF4, model, opt);
 
 % model_identified_elev10 = pem(data, model);
  
 %% Compare results
 % compare(data, model);
 % compare(data_MF1, model);
-compare(data, model_identified_MF4);
+compare(data, model);
 
  

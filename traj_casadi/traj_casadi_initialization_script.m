@@ -1,7 +1,7 @@
 close all;
 
 %% CasADi framework to find optimal trajectories and inputs
-[t_star, u_star, x_star, Tf, N] = find_opt_trajectory(par.id);
+[t_star, u_star, x_star, Tf, N] = find_opt_trajectory(par.id, TM_x_sim, TM_forces_sim);
 
 %% Timeseries for simulation
 fs_casadi_TS = timeseries(u_star(:,1), t_star);

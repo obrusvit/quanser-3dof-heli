@@ -1,18 +1,18 @@
-function [t_star, u_star, x_star, Tf, N] = find_opt_trajectory(par_id)
+function [t_star, u_star, x_star, Tf, N] = find_opt_trajectory(par_id, TM_x_sim, TM_forces_sim)
 %% optimal time, inputs, states, Final time, number of samples
 
 %% Final time and sample freq
-N = 4001;
+N = 4000;
 % x0 = [0.48;0;0;0;0;0];
 xa = [0;0;0;0;0;0];
-xb = [pi;0;0.01;0;0;0];
+xb = [pi;0;-0.5648;0;0;0];
 
 umin = -1;
 umax = 1;
 opti = casadi.Opti();
 
 Tf = 8;
-%Tf = opti.variable();
+% Tf = opti.variable();
 
 
 % define decision variables
@@ -29,11 +29,11 @@ dtheta = X(6, :);
 U = opti.variable(2,N+1); % controls
 
 opti.minimize(U(1,:)*U(1,:)'+U(2,:)*U(2,:)');
-%opti.minimize(Tf);
+% opti.minimize(Tf);
 
 %% Dynamic constraints
 f = @(x,u) helicopter_ode(x, u, par_id.cl, par_id.bl, par_id.ae1, ...
-    par_id.ae2, par_id.ce, par_id.be, par_id.at, par_id.ct, par_id.bt);
+    par_id.ae2, par_id.ce, par_id.be, -0.02, par_id.ct, par_id.bt);
 
 Ts = Tf/N; % control interval length
 
@@ -74,13 +74,18 @@ opti.subject_to(U(2,1)==0);
 
 
 % Running time constraints
-% opti.subject_to(umin<=U<=umax); %probably unnecessary
+opti.subject_to(umin<=U<=umax); %probably unnecessary
+
 
 % Restriction angle epsilon (elevation)
-opti.subject_to(-0.2618<=epsilon<=0.2618); %0.2618 ~ 15 deg
+% opti.subject_to(-0.2618<=epsilon<=0.2618); %0.2618 ~ 15 deg
+opti.subject_to(-0.6<=epsilon<=0.6); %0.6  ~ 34.4 deg
+
 
 % ..and pitch
-opti.subject_to(-1.3<=theta<=1.3); %1.3rad ~ 75deg
+% opti.subject_to(-1.3<=theta<=1.3); %1.3rad ~ 75deg
+opti.subject_to(-1.5<=theta<=1.5); %1.5rad ~ 85deg
+
 
 
 
@@ -94,16 +99,16 @@ opti.subject_to(-1.3<=theta<=1.3); %1.3rad ~ 75deg
 
 
 % Initialize decision variables
-opti.set_initial(U, 0);
+opti.set_initial(U, (TM_forces_sim(1:4001,:)/2.35)');
 
-opti.set_initial(lambda, 0);
-opti.set_initial(dlambda, 0);
+opti.set_initial(lambda, TM_x_sim(1:4001,1));
+opti.set_initial(dlambda, TM_x_sim(1:4001,2));
 
-opti.set_initial(epsilon, 0);
-opti.set_initial(depsilon, 0);
+opti.set_initial(epsilon, TM_x_sim(1:4001,3));
+opti.set_initial(depsilon, TM_x_sim(1:4001,4));
 
-opti.set_initial(theta, 0);
-opti.set_initial(dtheta, 0);
+opti.set_initial(theta, TM_x_sim(1:4001,5));
+opti.set_initial(dtheta, TM_x_sim(1:4001,6));
 
 
 % Solve NLP
