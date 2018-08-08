@@ -55,18 +55,18 @@ x=x_star';
 u1=u_star1';
 u2=u_star2';
 % Weight matrices
-Q = diag([100 10 10 1 1 0.1]); % state
+Q = diag([10000 40 300 40 300 40]); % state
 R = 1*eye(2); % control
 
 
 % Linearization around the optimal trajectory
-% x := [psi; Dpsi; theta; Dtheta; phi; Dphi]
+% x := [travel; Dtravel; elev; Delev; pitch; Dpitch]
 A = zeros(6, 6, numel(t_star));
 B = zeros(6, 2, numel(t_star));
 
 for i=1:numel(t_star)
-    % your code goes here
     
+    % Matrix A
     A(1,2,i)= 1;
     A(2,2,i)=-cl;
     A(2,3,i)=bl*sin(x(i,3))*sin(x(i,5))*u1(i); 
@@ -80,11 +80,11 @@ for i=1:numel(t_star)
     A(6,5,i)=-at*cos(x(i,3))*cos(x(i,5));
     A(6,6,i)=-ct;
     
+    %Matrix B
     B(2,1,i)=-bl*cos(x(i,3))*sin(x(i,5));
     B(4,1,i)=be*cos(x(i,5));
     B(6,2,i)=bt;
     
-  
 end
 
 % Design a LQR stabilizying the trajectory
@@ -99,21 +99,14 @@ for i = (numel(t_star) - 1):-1:1
     K(:,:,i) = (B(:,:,i)'*S(:,:,i+1)*B(:,:,i) + R)\(B(:,:,i)'*S(:,:,i+1)*A(:,:,i));
     S(:,:,i) = A(:,:,i)'*S(:,:,i+1)*(A(:,:,i) - B(:,:,i)*K(:,:,i)) + Q;
 end
-
-
-
 % K= permute(-squeeze(K),[2,3,1]);
-
-
-x0 = [0;0;0;0;0;0];
 K = squeeze(K);
+
+%Create timeseries
 K_TS = timeseries(K, t_star);
-
-
 x_star_TS = timeseries(x, t_star);
-u_star2_TS = timeseries(u2, t_star);
 u_star1_TS = timeseries(u1, t_star);
-
+u_star2_TS = timeseries(u2, t_star);
 
 
 
