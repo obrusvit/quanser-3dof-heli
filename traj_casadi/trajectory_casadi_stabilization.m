@@ -55,17 +55,16 @@ x=x_casadi;
 u1=u_casadi(:,1);
 u2=u_casadi(:,2);
 % Weight matrices
-Q = diag([10 1 100 1 1000 100]); % state
+Q = diag([1 1 100 100 1 1]); % state
 R =1*eye(2); % control
 
 
 % Linearization around the optimal trajectory
 % x := [travel; Dtravel; elev; Delev; pitch; Dpitch]
-A = zeros(6, 6, numel(t_star));
-B = zeros(6, 2, numel(t_star));
+A = zeros(6, 6, numel(t_casadi));
+B = zeros(6, 2, numel(t_casadi));
 
 for i=1:numel(t_star)
-    
     % Matrix A
     A(1,2,i)= 1;
     A(2,2,i)=-cl;
