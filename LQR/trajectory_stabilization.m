@@ -55,8 +55,8 @@ x=x_star';
 u1=u_star1';
 u2=u_star2';
 % Weight matrices
-Q = diag([100 1 10 1 1000 10]); % state
-R =100*eye(2); % control
+Q = diag([10000 10 1 1 10000 10]); % state
+R =1*eye(2); % control
 
 
 % Linearization around the optimal trajectory
@@ -100,7 +100,7 @@ for i = (numel(t_star) - 1):-1:1
     S(:,:,i) = A(:,:,i)'*S(:,:,i+1)*(A(:,:,i) - B(:,:,i)*K(:,:,i)) + Q;
 end
 % K= permute(-squeeze(K),[2,3,1]);
-% K = squeeze(K);
+K = -squeeze(K);
 
 %Create timeseries
 K_TS = timeseries(K, t_star);
