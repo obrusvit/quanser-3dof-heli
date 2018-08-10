@@ -1,17 +1,17 @@
-function [t_star, u_star, x_star, Tf, N] = find_opt_trajectory(par_id, TM_x_sim, TM_forces_sim)
+function [t_casadi, u_casadi, x_casadi, Tf_casadi, N] = find_opt_trajectory(par_id, x_star, u_star1, u_star2)
 %% optimal time, inputs, states, Final time, number of samples
 
 %% Final time and sample freq
-N = 4000;
+N = 4999;
 % x0 = [0.48;0;0;0;0;0];
 xa = [0;0;0;0;0;0];
-xb = [pi;0;-0.5648;0;0;0];
+xb = [pi;0;0;0;0;0];
 
-umin = -1;
-umax = 1;
+umin = -2;
+umax = 2;
 opti = casadi.Opti();
 
-Tf = 8;
+Tf_casadi = 8;
 % Tf = opti.variable();
 
 
@@ -35,7 +35,7 @@ opti.minimize(U(1,:)*U(1,:)'+U(2,:)*U(2,:)');
 f = @(x,u) helicopter_ode(x, u, par_id.cl, par_id.bl, par_id.ae1, ...
     par_id.ae2, par_id.ce, par_id.be, -0.02, par_id.ct, par_id.bt);
 
-Ts = Tf/N; % control interval length
+Ts = Tf_casadi/N; % control interval length
 
 
 for k=1:N % loop over control intervals
@@ -99,16 +99,17 @@ opti.subject_to(-1.5<=theta<=1.5); %1.5rad ~ 85deg
 
 
 % Initialize decision variables
-opti.set_initial(U, (TM_forces_sim(1:4001,:)/2.35)');
+opti.set_initial(U(1,:), u_star1);
+opti.set_initial(U(2,:), u_star2);
 
-opti.set_initial(lambda, TM_x_sim(1:4001,1));
-opti.set_initial(dlambda, TM_x_sim(1:4001,2));
+opti.set_initial(lambda, x_star(1,:));
+opti.set_initial(dlambda, x_star(2,:));
 
-opti.set_initial(epsilon, TM_x_sim(1:4001,3));
-opti.set_initial(depsilon, TM_x_sim(1:4001,4));
+opti.set_initial(epsilon, x_star(3,:));
+opti.set_initial(depsilon, x_star(4,:));
 
-opti.set_initial(theta, TM_x_sim(1:4001,5));
-opti.set_initial(dtheta, TM_x_sim(1:4001,6));
+opti.set_initial(theta, x_star(5,:));
+opti.set_initial(dtheta, x_star(6,:));
 
 
 % Solve NLP
@@ -116,9 +117,9 @@ opti.solver('ipopt'); % use IPOPT solver
 sol = opti.solve();
 
 % Extract the states and control from the decision variables
-x_star = sol.value(X)';
-u_star = sol.value(U)';
-t_star = (0:N)*Ts;
+x_casadi = sol.value(X)';
+u_casadi = sol.value(U)';
+t_casadi = (0:N)*Ts;
 
 end
 

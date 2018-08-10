@@ -1,7 +1,7 @@
 Model {
   Name			  "q_heli3d_semestral_project_LQR"
-  Version		  9.1
-  SavedCharacterEncoding  "UTF-8"
+  Version		  8.9
+  SavedCharacterEncoding  "windows-1250"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
@@ -16,59 +16,13 @@ Model {
     HasTerminateEvent	    0
     IsExportFunctionModel   0
     NumParameterArguments   0
-    NumExternalFileReferences 7
-    ExternalFileReference {
-      Reference		      "quarc_library/Data Acquisition/Generic/Configuration/HIL Initialize"
-      Path		      "q_heli3d_semestral_project_LQR/3-DOF Helicopter1/HIL Initialize"
-      SID		      "241"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "quarc_library/Data Acquisition/Generic/Timebases/HIL Read Encoder\nTimebase"
-      Path		      "q_heli3d_semestral_project_LQR/3-DOF Helicopter1/HIL Read Encoder Timebase"
-      SID		      "242"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "quarc_library/Data Acquisition/Generic/Immediate I//O/HIL Write Analog"
-      Path		      "q_heli3d_semestral_project_LQR/3-DOF Helicopter1/HIL Write Analog"
-      SID		      "243"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "quarc_library/Data Acquisition/Generic/Immediate I//O/HIL Write Digital"
-      Path		      "q_heli3d_semestral_project_LQR/3-DOF Helicopter1/HIL Write Digital"
-      SID		      "244"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink_extras/Transformations/Radians\nto Degrees"
-      Path		      "q_heli3d_semestral_project_LQR/Scopes/Radians to Degrees"
-      SID		      "776"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink_extras/Transformations/Radians\nto Degrees"
-      Path		      "q_heli3d_semestral_project_LQR/Scopes/Radians to Degrees1"
-      SID		      "777"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink_extras/Transformations/Radians\nto Degrees"
-      Path		      "q_heli3d_semestral_project_LQR/Scopes/Radians to Degrees2"
-      SID		      "778"
-      Type		      "LIBRARY_BLOCK"
-    }
     OrderedModelArguments   1
   }
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  Notes			  ""
-  NotesPlugin		  "on"
   LogicAnalyzerGraphicalSettings ""
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
-  CustomCodeFunctionData  ""
+  DiagnosticSuppressor	  "on"
+  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 8 0"
   SLCCPlugin		  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime off
@@ -80,7 +34,7 @@ Model {
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   UserBdParams		  "CheckForProblematicBlocks"
-  LastSavedArchitecture	  "glnxa64"
+  LastSavedArchitecture	  "win64"
   Object {
     $PropName		    "BdWindowsInfo"
     $ObjectID		    1
@@ -90,7 +44,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [55.0, 35.0, 1936.0, 1176.0]
+      Location		      [-8.0, -8.0, 1936.0, 1176.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -114,9 +68,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1898.0, 997.0]
+	Extents			[1882.0, 995.0]
 	ZoomFactor		[1.6617101334168805]
-	Offset			[-414.14311162617577, 779.91057615469583]
+	Offset			[-414.14311162617588, 779.91057615469583]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -134,13 +88,13 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAeQAAAEIwAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAeAAAAEHAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAMP/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAALt/////wAAAAAAAAAA/"
+      "////wEAAAMc/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   HideAutomaticNames	  on
@@ -151,9 +105,10 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "obrusvit"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Aug 10 14:18:57 2018"
+  LastModifiedDate	  "Wed Aug 08 19:40:52 2018"
   RTWModifiedTimeStamp	  455657754
   ModelVersionFormat	  "1.%<AutoIncrement:44>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -174,7 +129,6 @@ Model {
   ShowViewerIcons	  on
   SortedOrder		  off
   VariantCondition	  off
-  ShowSubsystemDomainSpec off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
   ShowVisualizeInsertedRTB on
@@ -182,13 +136,11 @@ Model {
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
-  BlockVariantConditionDataTip off
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks off
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
-  MultiThreadCoSim	  on
   SimulationMode	  "external"
   VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
@@ -196,8 +148,6 @@ Model {
   SnapshotBufferSize	  10
   SnapshotInterval	  10
   NumberOfLastSnapshots	  0
-  EnablePacing		  off
-  PacingRate		  1
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -252,7 +202,7 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.18.0"
+      Version		      "1.17.0"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -260,7 +210,7 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -271,9 +221,9 @@ Model {
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
-	  AutoScaleAbsTol	  "on"
 	  FixedStep		  "0.002"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -285,6 +235,7 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  EnableMultiTasking	  on
+	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode1"
 	  SolverName		  "ode1"
@@ -301,12 +252,10 @@ Model {
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
-	  DecoupledContinuousIntegration off
-	  MinimalZcImpactIntegration off
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -347,7 +296,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -405,16 +354,10 @@ Model {
 	  OptimizeBlockOrder	  "off"
 	  OptimizeDataStoreBuffers on
 	  BusAssignmentInplaceUpdate on
-	  DifferentSizesBufferReuse off
-	  OptimizationLevel	  "level2"
-	  OptimizationPriority	  "Balanced"
-	  OptimizationCustomize	  on
-	  UseRowMajorAlgorithm	  off
-	  LabelGuidedReuse	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -426,7 +369,6 @@ Model {
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
 	  SignalInfNanChecking	  "none"
-	  StringTruncationChecking "error"
 	  SignalRangeChecking	  "none"
 	  ReadBeforeWriteMsg	  "UseLocalSettings"
 	  WriteAfterWriteMsg	  "UseLocalSettings"
@@ -454,7 +396,6 @@ Model {
 	  MultiTaskRateTransMsg	  "error"
 	  SingleTaskRateTransMsg  "none"
 	  TasksWithSamePriorityMsg "warning"
-	  ExportedTasksRateTransMsg "none"
 	  SigSpecEnsureSampleTimeMsg "warning"
 	  CheckMatrixSingularityMsg "none"
 	  IntegerOverflowMsg	  "warning"
@@ -496,8 +437,6 @@ Model {
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
-	  ChecksumConsistencyForSSReuse	"none"
-	  LibraryContextMissingDiagnostic "none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -524,14 +463,11 @@ Model {
 	  AllowedUnitSystems	  "all"
 	  UnitsInconsistencyMsg	  "warning"
 	  AllowAutomaticUnitConversions	on
-	  RCSCRenamedMsg	  "warning"
-	  RCSCObservableMsg	  "warning"
-	  ForceCombineOutputUpdateInSim	off
 	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -579,7 +515,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -598,7 +534,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -628,7 +564,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -679,7 +615,6 @@ Model {
 	  CustomLibrary		  ""
 	  CustomDefine		  ""
 	  CustomLAPACKCallback	  ""
-	  CustomFFTCallback	  ""
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
@@ -715,10 +650,10 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.18.0"
+	      Version		      "1.17.0"
 	      Array {
 		Type			"Cell"
-		Dimension		29
+		Dimension		28
 		Cell			"IgnoreCustomStorageClasses"
 		Cell			"ParameterTuningSideEffectCode"
 		Cell			"IgnoreTestpoints"
@@ -747,7 +682,6 @@ Model {
 		Cell			"CustomSymbolStrEmxType"
 		Cell			"CustomSymbolStrEmxFcn"
 		Cell			"CustomUserTokenString"
-		Cell			"BlockCommentType"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
@@ -757,16 +691,18 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
-	      SharedChecksumLength    8
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
@@ -790,8 +726,6 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
-	      BlockCommentType	      "BlockPathComment"
-	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InternalIdentifierFile  ""
@@ -804,10 +738,10 @@ Model {
 	    Simulink.STFCustomTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.18.0"
+	      Version		      "1.17.0"
 	      Array {
 		Type			"Cell"
-		Dimension		17
+		Dimension		18
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SuppressErrorStatus"
@@ -825,6 +759,7 @@ Model {
 		Cell			"RemoveResetFunc"
 		Cell			"ExistingSharedCode"
 		Cell			"RemoveDisableFunc"
+		Cell			"CombineOutputUpdateFcns"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
@@ -837,7 +772,6 @@ Model {
 	      UtilityFuncGeneration   "Auto"
 	      MultiwordTypeDef	      "System defined"
 	      MultiwordLength	      2048
-	      DynamicStringBufferSize 256
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
 	      ExistingSharedCode      ""
@@ -852,6 +786,7 @@ Model {
 	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -881,12 +816,6 @@ Model {
 	      CoderGroups	      []
 	      AccessMethods	      []
 	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
-	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
-	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
-	      ArrayLayout	      "Column-major"
-	      ERTHeaderFileRootName   "$R$E"
-	      ERTSourceFileRootName   "$R$E"
-	      ERTDataFileRootName     "$R_data"
 	      SystemTargetFile	      "quarc_win64.tlc"
 	      DialogCategory	      0
 	      Array {
@@ -895,10 +824,10 @@ Model {
 		Simulink.GRTTargetCC {
 		  $BackupClass		  "Simulink.TargetCC"
 		  $ObjectID		  19
-		  Version		  "1.18.0"
+		  Version		  "1.17.0"
 		  Array {
 		    Type		    "Cell"
-		    Dimension		    17
+		    Dimension		    18
 		    Cell		    "GeneratePreprocessorConditionals"
 		    Cell		    "IncludeMdlTerminateFcn"
 		    Cell		    "SuppressErrorStatus"
@@ -916,6 +845,7 @@ Model {
 		    Cell		    "RemoveResetFunc"
 		    Cell		    "ExistingSharedCode"
 		    Cell		    "RemoveDisableFunc"
+		    Cell		    "CombineOutputUpdateFcns"
 		    PropName		    "DisabledProps"
 		  }
 		  Description		  ""
@@ -928,7 +858,6 @@ Model {
 		  UtilityFuncGeneration	  "Auto"
 		  MultiwordTypeDef	  "System defined"
 		  MultiwordLength	  2048
-		  DynamicStringBufferSize 256
 		  GenerateFullHeader	  on
 		  InferredTypesCompatibility off
 		  ExistingSharedCode	  ""
@@ -943,6 +872,7 @@ Model {
 		  CombineOutputUpdateFcns off
 		  CombineSignalStateStructs off
 		  SuppressErrorStatus	  off
+		  ERTFirstTimeCompliant	  off
 		  IncludeFileDelimiter	  "Auto"
 		  ERTCustomFileBanners	  off
 		  SupportAbsoluteTime	  on
@@ -972,12 +902,6 @@ Model {
 		  CoderGroups		  []
 		  AccessMethods		  []
 		  LookupTableObjectStructAxisOrder "1,2,3,4,..."
-		  LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
-		  LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
-		  ArrayLayout		  "Column-major"
-		  ERTHeaderFileRootName	  "$R$E"
-		  ERTSourceFileRootName	  "$R$E"
-		  ERTDataFileRootName	  "$R_data"
 		  UseMalloc		  off
 		  ExtMode		  on
 		  ExtModeStaticAlloc	  off
@@ -1075,7 +999,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  20
-	  Version		  "1.18.0"
+	  Version		  "1.17.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -1161,12 +1085,7 @@ Model {
     FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
-    MarkupType		    "model"
     UseDisplayTextAsClickCallback off
-    AnnotationType	    "note_annotation"
-    FixedHeight		    off
-    FixedWidth		    off
-    Interpreter		    "off"
   }
   LineDefaults {
     FontName		    "Arial"
@@ -1300,9 +1219,6 @@ Model {
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
       MustResolveToSignalObject	off
-      OutputWhenUnConnected   off
-      OutputWhenUnconnectedValue "0"
-      VectorParamsAs1DForOutWhenUnconnected off
     }
     Block {
       BlockType		      Product
@@ -1324,7 +1240,6 @@ Model {
       FunctionName	      "system"
       SFunctionModules	      "''"
       PortCounts	      "[]"
-      MultiThreadCoSim	      "auto"
     }
     Block {
       BlockType		      Saturate
@@ -1344,6 +1259,7 @@ Model {
     Block {
       BlockType		      Scope
       DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
+      Floating		      off
     }
     Block {
       BlockType		      Selector
@@ -1378,14 +1294,11 @@ Model {
       Opaque		      off
       MaskHideContents	      off
       SFBlockType	      "NONE"
-      Variant		      off
       GeneratePreprocessorConditionals off
-      AllowZeroVariantControls off
       PropagateVariantConditions off
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
-      IsObserver	      off
     }
     Block {
       BlockType		      Sum
@@ -1428,11 +1341,9 @@ Model {
   }
   System {
     Name		    "q_heli3d_semestral_project_LQR"
-    Location		    [55, 35, 1991, 1211]
+    Location		    [-8, -8, 1928, 1168]
     Open		    on
     PortBlocksUseCompactNotation off
-    SetDomainSpec	    off
-    DomainSpecType	    "Deduce"
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1455,13 +1366,12 @@ Model {
       ZOrder		      11
       BackgroundColor	      "orange"
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"3-DOF Helicopter1"
 	Location		[-8, -8, 1928, 1168]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1965,8 +1875,10 @@ Model {
 	Annotation {
 	  SID			  "256"
 	  Name			  "Enable VoltPAQ"
-	  Position		  [745, 164, 836, 180]
+	  Position		  [745, 164, 832, 180]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  ZOrder		  -1
 	  FontSize		  12
 	  FontWeight		  "bold"
@@ -1974,8 +1886,10 @@ Model {
 	Annotation {
 	  SID			  "255"
 	  Name			  "X = [eps, p, lambda,  eps_dot, p_dot, lambda_dot]"
-	  Position		  [650, 418, 934, 434]
+	  Position		  [650, 418, 917, 434]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  ZOrder		  -2
 	  FontSize		  12
 	  FontWeight		  "bold"
@@ -1983,8 +1897,10 @@ Model {
 	Annotation {
 	  SID			  "254"
 	  Name			  "Ch #0 = travel\nCh #1 = pitch\nCh #2 = elevation"
-	  Position		  [29, 216, 129, 260]
+	  Position		  [29, 216, 124, 260]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  ZOrder		  -3
 	  FontSize		  12
@@ -1993,8 +1909,10 @@ Model {
 	Annotation {
 	  SID			  "253"
 	  Name			  "3-DOF Helicopter\nReads angles from encoder and applied voltage to motors."
-	  Position		  [20, 15, 467, 53]
+	  Position		  [20, 15, 437, 53]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	  ZOrder		  -4
@@ -2004,8 +1922,10 @@ Model {
 	Annotation {
 	  SID			  "252"
 	  Name			  "Motor Input Voltage"
-	  Position		  [479, 219, 592, 235]
+	  Position		  [479, 219, 584, 235]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  ZOrder		  -5
 	  FontSize		  12
 	  FontWeight		  "bold"
@@ -2013,8 +1933,10 @@ Model {
 	Annotation {
 	  SID			  "251"
 	  Name			  "u = [u_front, u_back]"
-	  Position		  [65, 99, 185, 115]
+	  Position		  [65, 99, 176, 115]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  ZOrder		  -6
 	  FontSize		  12
 	  FontWeight		  "bold"
@@ -2022,8 +1944,10 @@ Model {
 	Annotation {
 	  SID			  "250"
 	  Name			  "A0 #0 = front motor\nA0 #1 = back motor"
-	  Position		  [465, 70, 577, 100]
+	  Position		  [465, 70, 572, 100]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  ZOrder		  -7
 	  FontSize		  12
@@ -2119,13 +2043,12 @@ Model {
       Position		      [-370, 973, -265, 1087]
       ZOrder		      527
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"LQR controller\nalong trajectories"
-	Location		[55, 35, 1991, 1211]
+	Location		[-8, -8, 1928, 1168]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2304,7 +2227,6 @@ Model {
 	  "on',true,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017a')),'Version','"
 	  "2017a')"
 	  NumInputPorts		  "1"
-	  Floating		  off
 	}
 	Block {
 	  BlockType		  Scope
@@ -2331,7 +2253,6 @@ Model {
 	  "'Plot Navigation',true,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017a'"
 	  ")),'Version','2017a','Position',[1 41 1916 1083])"
 	  NumInputPorts		  "1"
-	  Floating		  off
 	}
 	Block {
 	  BlockType		  Scope
@@ -2358,7 +2279,6 @@ Model {
 	  "true,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017a')),'Version','2017"
 	  "a','Position',[221 572 560 420])"
 	  NumInputPorts		  "1"
-	  Floating		  off
 	}
 	Block {
 	  BlockType		  SubSystem
@@ -2368,13 +2288,12 @@ Model {
 	  Position		  [865, 235, 950, 305]
 	  ZOrder		  582
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "[fs,fd] to [f1,f2]"
 	    Location		    [-8, -8, 1928, 1168]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2557,13 +2476,12 @@ Model {
 	  Position		  [965, 435, 1050, 505]
 	  ZOrder		  583
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "[fs,fd] to [f1,f2]1"
-	    Location		    [55, 35, 1991, 1211]
+	    Location		    [-8, -8, 1928, 1168]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2921,8 +2839,10 @@ Model {
 	  "e></head><body style=\" font-family:'Helvetica'; font-size:10px; font-weight:400; font-style:normal;\">\n<p style=\""
 	  " margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span"
 	  " style=\" font-size:16px; color:#0070c0;\">Desired trajectories</span></p></body></html>"
-	  Position		  [290, 358, 429, 378]
+	  Position		  [290, 358, 292, 373]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  Interpreter		  "rich"
@@ -2931,8 +2851,10 @@ Model {
 	Annotation {
 	  SID			  "1111"
 	  Name			  "3-DOF Helicopter: Position Controller"
-	  Position		  [398, 269, 649, 287]
+	  Position		  [398, 269, 630, 287]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  ZOrder		  -5
 	  FontSize		  14
 	  FontWeight		  "bold"
@@ -2944,8 +2866,10 @@ Model {
 	  "e></head><body style=\" font-family:'Helvetica'; font-size:10px; font-weight:400; font-style:normal;\">\n<p style=\""
 	  " margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span"
 	  " style=\" font-size:16px; color:#0070c0;\">[travel, dtravel, elev, delev, pitch, dpitch]</span></p></body></html>"
-	  Position		  [76, 458, 359, 478]
+	  Position		  [76, 458, 78, 473]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  Interpreter		  "rich"
@@ -2959,8 +2883,10 @@ Model {
 	  "rgin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-heigh"
 	  "t:100%;\"><span style=\" font-family:'Helvetica'; font-size:16px; color:#0070c0;\">[fs, fd]</span></p></body></html"
 	  ">"
-	  Position		  [889, 451, 934, 471]
+	  Position		  [889, 451, 891, 466]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  Interpreter		  "rich"
@@ -2974,8 +2900,10 @@ Model {
 	  "rgin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-heigh"
 	  "t:100%;\"><span style=\" font-family:'Helvetica'; font-size:16px; color:#0070c0;\">[f1, f2]</span></p></body></html"
 	  ">"
-	  Position		  [1086, 440, 1132, 460]
+	  Position		  [1086, 440, 1088, 455]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  Interpreter		  "rich"
@@ -2992,13 +2920,12 @@ Model {
       ZOrder		      360
       BackgroundColor	      "yellow"
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"Scopes"
 	Location		[-8, -8, 1928, 1168]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3113,7 +3040,6 @@ Model {
 	  "'),extmgr.Configuration('Tools','Measurements',true,'Version','2017a')),'Version','2017a','Position',[34 46 1873 96"
 	  "8])"
 	  NumInputPorts		  "2"
-	  Floating		  off
 	}
 	Block {
 	  BlockType		  Mux
@@ -3229,7 +3155,6 @@ Model {
 	  ",'Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',tr"
 	  "ue,'Version','2017a')),'Version','2017a','Position',[1 41 1916 1083])"
 	  NumInputPorts		  "3"
-	  Floating		  off
 	}
 	Block {
 	  BlockType		  Selector
@@ -3461,7 +3386,6 @@ Model {
 	  ",false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017a')),'Version','20"
 	  "17a','Position',[50 1 1873 968])"
 	  NumInputPorts		  "2"
-	  Floating		  off
 	}
 	Line {
 	  ZOrder		  1
@@ -3751,8 +3675,10 @@ Model {
 	Annotation {
 	  SID			  "652"
 	  Name			  "Scopes"
-	  Position		  [39, 15, 90, 33]
+	  Position		  [39, 15, 87, 33]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  ZOrder		  -1
 	  FontSize		  14
 	  FontWeight		  "bold"
@@ -3766,6 +3692,8 @@ Model {
 	  " style=\" font-size:16px; color:#0070c0;\">[f1, f2]</span></p></body></html>"
 	  Position		  [1336, 403, 1338, 418]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  Interpreter		  "rich"
@@ -3780,6 +3708,8 @@ Model {
 	  " style=\" font-size:16px; color:#0070c0;\">[u1, u2]</span></p></body></html>"
 	  Position		  [1327, 87, 1329, 102]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  Interpreter		  "rich"
@@ -3808,13 +3738,12 @@ Model {
       ZOrder		      413
       BackgroundColor	      "lightBlue"
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"force model1"
 	Location		[-8, -8, 1928, 1168]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3907,7 +3836,6 @@ Model {
 	  "tStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2017a')),'Version','2017a','Position',[-1"
 	  "05 14 1873 970])"
 	  NumInputPorts		  "3"
-	  Floating		  off
 	}
 	Block {
 	  BlockType		  SubSystem
@@ -3917,13 +3845,12 @@ Model {
 	  Position		  [300, 205, 340, 265]
 	  ZOrder		  227
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "f_tilde 2 v"
 	    Location		    [-8, -8, 1928, 1168]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3967,14 +3894,13 @@ Model {
 	      TreatAsAtomicUnit	      on
 	      RequestExecContextInheritance off
 	      SFBlockType	      "MATLAB Function"
+	      Variant		      off
 	      ContentPreviewEnabled   on
 	      System {
 		Name			"MATLAB Function1"
 		Location		[223, 338, 826, 833]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -3986,7 +3912,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"25"
+		SIDHighWatermark	"22"
 		Block {
 		  BlockType		  Inport
 		  Name			  "f_tilde"
@@ -3998,24 +3924,24 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "878::24"
+		  SID			  "878::20"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  14
+		  ZOrder		  11
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "878::23"
+		  SID			  "878::19"
 		  Tag			  "Stateflow S-Function q_heli3d_semestral_project_LQR 3"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  13
+		  ZOrder		  10
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
@@ -4025,9 +3951,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "878::25"
+		  SID			  "878::21"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  15
+		  ZOrder		  12
 		}
 		Block {
 		  BlockType		  Outport
@@ -4038,7 +3964,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  5
+		  ZOrder		  1
 		  SrcBlock		  "f_tilde"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4046,7 +3972,7 @@ Model {
 		}
 		Line {
 		  Name			  "v"
-		  ZOrder		  6
+		  ZOrder		  2
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4054,14 +3980,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  3
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  4
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4081,14 +4007,13 @@ Model {
 	      TreatAsAtomicUnit	      on
 	      RequestExecContextInheritance off
 	      SFBlockType	      "MATLAB Function"
+	      Variant		      off
 	      ContentPreviewEnabled   on
 	      System {
 		Name			"MATLAB Function2"
 		Location		[223, 338, 826, 833]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4100,7 +4025,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"25"
+		SIDHighWatermark	"22"
 		Block {
 		  BlockType		  Inport
 		  Name			  "f_tilde"
@@ -4112,24 +4037,24 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "879::24"
+		  SID			  "879::20"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  14
+		  ZOrder		  11
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "879::23"
+		  SID			  "879::19"
 		  Tag			  "Stateflow S-Function q_heli3d_semestral_project_LQR 5"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  13
+		  ZOrder		  10
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
@@ -4139,9 +4064,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "879::25"
+		  SID			  "879::21"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  15
+		  ZOrder		  12
 		}
 		Block {
 		  BlockType		  Outport
@@ -4152,7 +4077,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  5
+		  ZOrder		  1
 		  SrcBlock		  "f_tilde"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4160,7 +4085,7 @@ Model {
 		}
 		Line {
 		  Name			  "v"
-		  ZOrder		  6
+		  ZOrder		  2
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4168,14 +4093,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  3
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  4
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4348,6 +4273,8 @@ Model {
 	  Name			  "This should be voltages to\n real experimental setup"
 	  Position		  [365, 186, 482, 212]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  ZOrder		  -1
@@ -4357,6 +4284,8 @@ Model {
 	  Name			  "This should be scaled force"
 	  Position		  [134, 94, 257, 108]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  ZOrder		  -2
@@ -4366,6 +4295,8 @@ Model {
 	  Name			  "This should be input to simulator"
 	  Position		  [378, 94, 524, 108]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  ZOrder		  -3
@@ -4375,6 +4306,8 @@ Model {
 	  Name			  "FORCES"
 	  Position		  [430, 120, 473, 134]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  ZOrder		  -4
@@ -4384,6 +4317,8 @@ Model {
 	  Name			  "VOLTAGES"
 	  Position		  [431, 251, 485, 265]
 	  InternalMargins	  [0, 0, 0, 0]
+	  FixedHeight		  off
+	  FixedWidth		  off
 	  HorizontalAlignment	  "left"
 	  VerticalAlignment	  "top"
 	  ZOrder		  -5
@@ -4719,7 +4654,7 @@ MatData {
 }
 #Finite State Machines
 #
-#   Stateflow 80000014
+#   Stateflow 80000011
 #
 #
 Stateflow {
@@ -4728,7 +4663,7 @@ Stateflow {
     name		    "q_heli3d_semestral_project_LQR"
     created		    "15-Jun-2018 12:39:27"
     isLibrary		    0
-    sfVersion		    80000014
+    sfVersion		    80000011
     firstTarget		    16
   }
   chart {
