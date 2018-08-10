@@ -11,7 +11,7 @@ umin = -2;
 umax = 2;
 opti = casadi.Opti();
 
-Tf_casadi = 8;
+Tf_casadi = 12;
 % Tf = opti.variable();
 
 
@@ -33,7 +33,7 @@ opti.minimize(U(1,:)*U(1,:)'+U(2,:)*U(2,:)');
 
 %% Dynamic constraints
 f = @(x,u) helicopter_ode(x, u, par_id.cl, par_id.bl, par_id.ae1, ...
-    par_id.ae2, par_id.ce, par_id.be, -0.02, par_id.ct, par_id.bt);
+    par_id.ae2, par_id.ce, par_id.be, par_id.at, par_id.ct, par_id.bt);
 
 Ts = Tf_casadi/N; % control interval length
 
@@ -78,13 +78,15 @@ opti.subject_to(umin<=U<=umax); %probably unnecessary
 
 
 % Restriction angle epsilon (elevation)
-% opti.subject_to(-0.2618<=epsilon<=0.2618); %0.2618 ~ 15 deg
-opti.subject_to(-0.6<=epsilon<=0.6); %0.6  ~ 34.4 deg
+opti.subject_to(-0.2618<=epsilon<=0.2618); %0.2618 ~ 15 deg
+% opti.subject_to(-0.6<=epsilon<=0.6); %0.6  ~ 34.4 deg
 
 
 % ..and pitch
+opti.subject_to(-1.05<=theta<=1.05); %1.05rad ~ 60deg
 % opti.subject_to(-1.3<=theta<=1.3); %1.3rad ~ 75deg
-opti.subject_to(-1.5<=theta<=1.5); %1.5rad ~ 85deg
+% opti.subject_to(-1.5<=theta<=1.5); %1.5rad ~ 85deg
+
 
 
 
@@ -120,6 +122,7 @@ sol = opti.solve();
 x_casadi = sol.value(X)';
 u_casadi = sol.value(U)';
 t_casadi = (0:N)*Ts;
+
 
 end
 

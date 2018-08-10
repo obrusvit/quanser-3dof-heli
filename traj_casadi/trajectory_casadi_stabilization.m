@@ -54,8 +54,10 @@ close all
 x=x_casadi;
 u1=u_casadi(:,1);
 u2=u_casadi(:,2);
+% u1 = u_star_v1(:,2);
+% u2 = u_star_v2(:,2);
 % Weight matrices
-Q = diag([1 1 100 100 1 1]); % state
+Q = diag([10 0 10 0 10 0]); % state
 R =1*eye(2); % control
 
 
@@ -104,8 +106,10 @@ K = -squeeze(K);
 %Create timeseries
 K_TS = timeseries(K, t_casadi);
 x_star_TS = timeseries(x, t_casadi);
+
 u_star1_TS = timeseries(u1, t_casadi);
 u_star2_TS = timeseries(u2, t_casadi);
+
 
 
 

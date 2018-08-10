@@ -7,6 +7,10 @@ close all;
 fs_casadi_TS = timeseries(u_casadi(:,1), t_casadi);
 fd_casadi_TS = timeseries(u_casadi(:,2), t_casadi);
 
+% ..
+% u_star_v1 = horzcat(t_casadi(1,1:end-1)', u_casadi(:,1));
+% u_star_v2 = horzcat(t_casadi(1,1:end-1)', u_casadi(:,2));
+
 x_casadi_TS = timeseries(x_casadi, t_casadi);
 
 
