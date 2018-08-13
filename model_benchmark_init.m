@@ -46,6 +46,9 @@ par_id.bt = bt;
 
 % par_ctrl.Omega = diag([0.65, 1, 2.80]);
 % par_ctrl.Xi = diag([0.9, 1.05, 5.45]);  %wow, MF1
+ 
+% par_ctrl.Omega = diag([0.65, 1, 2.80]);
+% par_ctrl.Xi = diag([0.9, 1.05, 5.9]);  %wow, MF1
 
-par_ctrl.Omega = diag([0.65, 1, 2.80]);
-par_ctrl.Xi = diag([0.9, 1.05, 5.9]);  %wow, MF1
+par_ctrl.Omega = diag([0.4, 1.1, 2.8]);
+par_ctrl.Xi = diag([0.47, 1.05, 5.8]); 
