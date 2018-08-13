@@ -55,8 +55,9 @@ x=x_star';
 u1=u_star1';
 u2=u_star2';
 % Weight matrices
-Q = diag([10000 10 1 1 10000 10]); % state
-R =1*eye(2); % control
+Q = diag([1000 10 1 1 100 10]); % state
+% R =0.1*eye(2); % control
+R = diag([1 0.001]);
 
 
 % Linearization around the optimal trajectory

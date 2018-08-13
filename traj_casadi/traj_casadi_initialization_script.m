@@ -1,7 +1,8 @@
 close all;
+%% NOT NEEDED TO RUN. Computed trajectories are in the workspace
 
 %% CasADi framework to find optimal trajectories and inputs
-[t_casadi, u_casadi, x_casadi, Tf_casadi, N] = find_opt_trajectory(par_id, x_star, u_star1, u_star2);
+%[t_casadi, u_casadi, x_casadi, Tf_casadi, N] = find_opt_trajectory(par_id, x_star, u_star1, u_star2);
 
 %% Timeseries for simulation
 fs_casadi_TS = timeseries(u_casadi(:,1), t_casadi);

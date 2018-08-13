@@ -1,21 +1,13 @@
-function [ t_star, x_star,  y, u_star1, u_star2 ] = bvp4c_heloNEW2(tf)
+function [ t_star, x_star,  y, u_star1, u_star2 ] = bvp4c_heli()
 
 close all
 fs=5000;
+tf = 10;
 t_star=linspace(0,tf,fs);
 solinit = bvpinit(t_star,@heli_init);
-% 
-% ae1=1.3623;
-% ae2=-0.3787;
-% cl=0.2025;
-% at=-0.4638;
-% be=0.1163;
-% bt=0.9621;
-% ce=0.0447;
-% ct=0.0076;
-% bl=-0.1032;
 
-% MF4
+% Identified parameters MF4
+% These are the only ones which generate valid trajectory
 ae1=1.3969;
 ae2=-0.1037;
 cl=0.0174;

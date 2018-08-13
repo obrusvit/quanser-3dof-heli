@@ -57,8 +57,13 @@ u2=u_casadi(:,2);
 % u1 = u_star_v1(:,2);
 % u2 = u_star_v2(:,2);
 % Weight matrices
-Q = diag([10 0 10 0 10 0]); % state
-R =1*eye(2); % control
+% Q = diag([1 0 1 0 100000 100]); % state
+% R =0.01*eye(2); % control
+% R = diag([10 0.01]);
+
+Q = diag([1000 2 1 1 100 1]); % state
+% R =0.01*eye(2); % control
+R = 0.001*diag([100 1]);
 
 
 % Linearization around the optimal trajectory
