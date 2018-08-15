@@ -7,11 +7,11 @@ N = 4999;
 xa = [0;0;0;0;0;0];
 xb = [pi;0;0;0;0;0];
 
-umin = -2;
-umax = 2;
+umin = -1.3;
+umax = 1.3;
 opti = casadi.Opti();
 
-Tf_casadi = 12;
+Tf_casadi = 10;
 % Tf = opti.variable();
 
 
@@ -83,9 +83,9 @@ opti.subject_to(-0.2618<=epsilon<=0.2618); %0.2618 ~ 15 deg
 
 
 % ..and pitch
-opti.subject_to(-1.05<=theta<=1.05); %1.05rad ~ 60deg
+%opti.subject_to(-1.05<=theta<=1.05); %1.05rad ~ 60deg
 % opti.subject_to(-1.3<=theta<=1.3); %1.3rad ~ 75deg
-% opti.subject_to(-1.5<=theta<=1.5); %1.5rad ~ 85deg
+opti.subject_to(-1.5<=theta<=1.5); %1.5rad ~ 85deg
 
 
 

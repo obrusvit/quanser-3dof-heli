@@ -1,12 +1,12 @@
 Model {
-  Name			  "q_heli3d_semestral_project_LQR_regulation"
+  Name			  "q_heli3d_casadi_LQR_regulation"
   Version		  8.9
   SavedCharacterEncoding  "windows-1250"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.44"
+    ComputedModelVersion    "1.45"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -71,7 +71,7 @@ Model {
 	  LoadSaveID		  "0"
 	  Extents		  [1882.0, 992.0]
 	  ZoomFactor		  [1.6617101334168805]
-	  Offset		  [-414.14311162617588, 779.91057615469583]
+	  Offset		  [-414.14311162617577, 779.91057615469572]
 	}
 	Object {
 	  $ObjectID		  6
@@ -117,9 +117,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "obrusvit"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Aug 08 20:15:33 2018"
-  RTWModifiedTimeStamp	  455658702
-  ModelVersionFormat	  "1.%<AutoIncrement:44>"
+  LastModifiedDate	  "Wed Aug 15 18:17:12 2018"
+  RTWModifiedTimeStamp	  456257352
+  ModelVersionFormat	  "1.%<AutoIncrement:45>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -171,11 +171,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    8
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "q_heli3d_semestral_project_LQR_regulation"
+    model_		    "q_heli3d_casadi_LQR_regulation"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "q_heli3d_semestral_project_LQR_regulation"
+      Cell		      "q_heli3d_casadi_LQR_regulation"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1328,7 +1328,7 @@ Model {
     }
   }
   System {
-    Name		    "q_heli3d_semestral_project_LQR_regulation"
+    Name		    "q_heli3d_casadi_LQR_regulation"
     Location		    [-8, -8, 1928, 1168]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1344,7 +1344,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "166"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "1179"
+    SIDHighWatermark	    "1181"
     Block {
       BlockType		      SubSystem
       Name		      "3-DOF Helicopter1"
@@ -1661,9 +1661,18 @@ Model {
 	  BlockType		  Bias
 	  Name			  "Initial Elevation (rad)1"
 	  SID			  "341"
-	  Position		  [485, 354, 565, 386]
+	  Position		  [465, 344, 545, 376]
 	  ZOrder		  7
 	  Bias			  "elev_0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Bias
+	  Name			  "Initial Pitch\n"
+	  SID			  "1180"
+	  Position		  [460, 399, 540, 431]
+	  ZOrder		  8
+	  Bias			  "-0.0873"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
@@ -1773,9 +1782,8 @@ Model {
 	  }
 	  Branch {
 	    ZOrder		    11
-	    Points		    [270, 0; 0, 100]
-	    DstBlock		    "Mux1"
-	    DstPort		    2
+	    DstBlock		    "Initial Pitch\n"
+	    DstPort		    1
 	  }
 	}
 	Line {
@@ -1859,6 +1867,14 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Demux"
 	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  52
+	  SrcBlock		  "Initial Pitch\n"
+	  SrcPort		  1
+	  Points		  [75, 0; 0, 100]
+	  DstBlock		  "Mux1"
+	  DstPort		  2
 	}
 	Annotation {
 	  SID			  "256"
@@ -2009,7 +2025,7 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "LQR controller\nalong trajectories"
+      Name		      "LQR regulation at zero state"
       SID		      "1049"
       Ports		      [1, 1]
       Position		      [-370, 933, -265, 1047]
@@ -2017,7 +2033,7 @@ Model {
       RequestExecContextInheritance off
       Variant		      off
       System {
-	Name			"LQR controller\nalong trajectories"
+	Name			"LQR regulation at zero state"
 	Location		[-8, -8, 1928, 1168]
 	Open			on
 	PortBlocksUseCompactNotation off
@@ -2058,7 +2074,7 @@ Model {
 	  SID			  "1173"
 	  Position		  [670, 472, 715, 508]
 	  ZOrder		  584
-	  Gain			  "K_Stab_zero"
+	  Gain			  "K_REG"
 	  Multiplication	  "Matrix(K*u)"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -2629,33 +2645,33 @@ Model {
 	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
 	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
 	  "','WiredSimulink',true,'DataLoggingVariableName','ScopeData2','DataLoggingLimitDataPoints',true,'DataLoggingMaxPoin"
-	  "ts','1000000'),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-41.71"
-	  "509','MaxYLimReal','29.58618','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','41.71509','LegendVisibility','Of"
-	  "f','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627450"
-	  "9803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470"
-	  "5882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569"
-	  " 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{"
-	  "}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Radians to Degrees:1','Radians to Degrees:2','Radians"
-	  " to Degrees:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-26.04858','MaxYLimReal','9.43726','YLabel"
-	  "Real','','MinYLimMag','0.00000','MaxYLimMag','2.25889','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagP"
-	  "hase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder"
-	  "',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39215686274"
-	  "5098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450980"
-	  "39215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'Num"
-	  "Lines',3,'LineNames',{{'Radians to Degrees1:1','Radians to Degrees1:2','Radians to Degrees1:3'}},'ShowContent',true"
-	  ",'Placement',2),struct('MinYLimReal','-70.80688','MaxYLimReal','115.19165','YLabelReal','','MinYLimMag','0.00000','"
-	  "MaxYLimMag','2.25889','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'"
-	  "AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.07450"
-	  "98039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980"
-	  "39215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Titl"
-	  "e','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Radians t"
-	  "o Degrees2:1','Radians to Degrees2:2','Radians to Degrees2:3'}},'ShowContent',true,'Placement',3)},'DisplayProperty"
-	  "Defaults',struct('YLabelReal','','AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862745"
-	  "09803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.066666666"
-	  "6666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.058823529411"
-	  "7647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[3 1]),extmgr.Configuration('Tools','Pl"
-	  "ot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'"
-	  "Version','2017a')),'Version','2017a','Position',[3 519 1916 566])"
+	  "ts','1000000'),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-2.504"
+	  "88','MaxYLimReal','22.54395','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','22.54395','LegendVisibility','Off"
+	  "','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509"
+	  "803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705"
+	  "882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 "
+	  "1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}"
+	  "},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Radians to Degrees:1','Radians to Degrees:2','Radians "
+	  "to Degrees:3'}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-5.07568','MaxYLimReal','25.46631','YLabelR"
+	  "eal','','MinYLimMag','0.00000','MaxYLimMag','2.25889','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPh"
+	  "ase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder'"
+	  ",[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745"
+	  "098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509803"
+	  "9215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumL"
+	  "ines',3,'LineNames',{{'Radians to Degrees1:1','Radians to Degrees1:2','Radians to Degrees1:3'}},'ShowContent',true,"
+	  "'Placement',2),struct('MinYLimReal','-43.66281','MaxYLimReal','22.1453','YLabelReal','','MinYLimMag','0.00000','Max"
+	  "YLimMag','2.25889','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Axe"
+	  "sTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.07450980"
+	  "39215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980392"
+	  "15686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title',"
+	  "'%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'Radians to D"
+	  "egrees2:1','Radians to Degrees2:2','Radians to Degrees2:3'}},'ShowContent',true,'Placement',3)},'DisplayPropertyDef"
+	  "aults',struct('YLabelReal','','AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862745098"
+	  "03922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.066666666666"
+	  "6667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.058823529411764"
+	  "7 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[3 1]),extmgr.Configuration('Tools','Plot "
+	  "Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Ver"
+	  "sion','2017a')),'Version','2017a','Position',[1 41 1916 1083])"
 	  NumInputPorts		  "3"
 	}
 	Block {
@@ -3436,7 +3452,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "878::19"
-		  Tag			  "Stateflow S-Function q_heli3d_semestral_project_LQR_regulation 3"
+		  Tag			  "Stateflow S-Function q_heli3d_casadi_LQR_regulation 3"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
 		  ZOrder		  10
@@ -3549,7 +3565,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "879::19"
-		  Tag			  "Stateflow S-Function q_heli3d_semestral_project_LQR_regulation 5"
+		  Tag			  "Stateflow S-Function q_heli3d_casadi_LQR_regulation 5"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
 		  ZOrder		  10
@@ -3864,7 +3880,7 @@ Model {
       Branch {
 	ZOrder			625
 	Points			[0, 258; -805, 0; 0, -273]
-	DstBlock		"LQR controller\nalong trajectories"
+	DstBlock		"LQR regulation at zero state"
 	DstPort			1
       }
       Branch {
@@ -3908,7 +3924,7 @@ Model {
     }
     Line {
       ZOrder		      618
-      SrcBlock		      "LQR controller\nalong trajectories"
+      SrcBlock		      "LQR regulation at zero state"
       SrcPort		      1
       DstBlock		      "force model1"
       DstPort		      1
@@ -3928,6 +3944,16 @@ Model {
       Points		      [30, 0; 0, -5]
       DstBlock		      "Scopes"
       DstPort		      4
+    }
+    Annotation {
+      SID		      "1181"
+      Name		      "Regulation at zero state"
+      Position		      [-340, 867, -233, 881]
+      InternalMargins	      [0, 0, 0, 0]
+      FixedHeight	      off
+      FixedWidth	      off
+      HorizontalAlignment     "left"
+      VerticalAlignment	      "top"
     }
   }
 }
@@ -4038,9 +4064,9 @@ MatData {
     "    0    $          @ !       .    N $   8    (     @         %    \"     $    !     0         %  0 $0    $   !5  "
     "  ;VQD7VYA;64           !O;&1?8FQO8VL          &ES7W5N:7%U90          :7-?9&5L971E9         !I<U]M;V1E;%]C;&]S:6YG"
     "      X    X    !@    @    $          4    (     0    4    !         !     %    2$E,+3$    .    .     8    (    !@"
-    "         %    \"     $    !     0         )    \"          8 #- #@   #     &    \"     D\"        !0    @    !    "
-    " 0    $          @ !  $    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       X    P   "
-    " !@    @    ) @        4    (     0    $    !          (  0      "
+    "         %    \"     $    !     0         )    \"        ( \"H'Q #@   #     &    \"     D\"        !0    @    !   "
+    "  0    $          @ !  $    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       X    P  "
+    "  !@    @    ) @        4    (     0    $    !          (  0      "
   }
   DataRecord {
     Tag			    DataTag1
@@ -4048,7 +4074,7 @@ MatData {
     "-T7VYA;64       X    8 0  !@    @    \"          4    (     0    $    !          4 !  -     0   \"<   !O;&1?;F%M90"
     "      :7-?9&5L971E9    &]B:F5C=%]B;&]C:P  #@   #@    &    \"     0         !0    @    !    !0    $         $     4"
     "   !(24PM,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     8 "
-    "        !0    @    !     0    $         \"0    @         &  S0 "
+    "        !0    @    !     0    $         \"0    @       \"  J!\\0 "
   }
   DataRecord {
     Tag			    DataTag2
@@ -4056,7 +4082,7 @@ MatData {
     "-T7VYA;64       X    8 0  !@    @    \"          4    (     0    $    !          4 !  -     0   \"<   !O;&1?;F%M90"
     "      :7-?9&5L971E9    &]B:F5C=%]B;&]C:P  #@   #@    &    \"     0         !0    @    !    !0    $         $     4"
     "   !(24PM,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     8 "
-    "        !0    @    !     0    $         \"0    @         &  S0 "
+    "        !0    @    !     0    $         \"0    @       \"  J!\\0 "
   }
   DataRecord {
     Tag			    DataTag3
@@ -4064,7 +4090,7 @@ MatData {
     "-T7VYA;64       X    8 0  !@    @    \"          4    (     0    $    !          4 !  -     0   \"<   !O;&1?;F%M90"
     "      :7-?9&5L971E9    &]B:F5C=%]B;&]C:P  #@   #@    &    \"     0         !0    @    !    !0    $         $     4"
     "   !(24PM,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     8 "
-    "        !0    @    !     0    $         \"0    @         &  S0 "
+    "        !0    @    !     0    $         \"0    @       \"  J!\\0 "
   }
 }
 #Finite State Machines
@@ -4075,7 +4101,7 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "q_heli3d_semestral_project_LQR_regulation"
+    name		    "q_heli3d_casadi_LQR_regulation"
     created		    "15-Jun-2018 12:39:27"
     isLibrary		    0
     sfVersion		    80000011

@@ -50,32 +50,37 @@ close all
 % xlabel('time (s)')
 % 
 
-%% Stabilization
-x=x_casadi;
-u1=u_casadi(:,1);
-u2=u_casadi(:,2);
-% u1 = u_star_v1(:,2);
-% u2 = u_star_v2(:,2);
-% Weight matrices
-% Q = diag([1 0 1 0 100000 100]); % state
-% R =0.01*eye(2); % control
-% R = diag([10 0.01]);
+%% Trajectory Stabilization
+% x=x_casadi;
+% u1=u_casadi(:,1);
+% u2=u_casadi(:,2);
 
-Q = diag([1000 2 1 1 100 1]); % state
-% R =0.01*eye(2); % control
-R = 0.001*diag([1 1]);
+% x=x_casadi8;
+% u1=u_casadi8(:,1);
+% u2=u_casadi8(:,2);
+x=x_casadi10;
+u1=u_casadi10(:,1);
+u2=u_casadi10(:,2);
+
+
+% Q = diag([10 2 100 1 100 1]); % Q for 12 sec trajectory
+% R = 10*diag([1 1]); % R for 12 sec trajectory
+
+Q = diag([50 2 100 1 100 1]); % Q for 10 sec trajectory
+R = 1*diag([1 1]); % R for 10 sec trajectory
 
 
 % Linearization around the optimal trajectory
 % x := [travel; Dtravel; elev; Delev; pitch; Dpitch]
-A_cont_lin = zeros(6, 6, numel(t_casadi));
-B_cont_lin = zeros(6, 2, numel(t_casadi));
+A_cont_lin = zeros(6, 6, numel(t_casadi8));
+B_cont_lin = zeros(6, 2, numel(t_casadi8));
 
-A = zeros(6, 6, numel(t_casadi));
-B = zeros(6, 2, numel(t_casadi));
-TS = Tf_casadi/5000;
+A = zeros(6, 6, numel(t_casadi8));
+B = zeros(6, 2, numel(t_casadi8));
+% TS = Tf_casadi/5000;
+TS = Tf_casadi10/5000;
 
-for i=1:numel(t_star)
+for i=1:numel(t_casadi)
     % Matrix A continuous linearized
     A_cont_lin(1,2,i)= 1;
     A_cont_lin(2,2,i)=-cl;
@@ -104,14 +109,14 @@ for i=1:numel(t_star)
 end
 
 % Design a LQR stabilizying the trajectory
-S = zeros(6, 6, numel(t_star));
-K = zeros(2, 6, numel(t_star));
+S = zeros(6, 6, numel(t_casadi));
+K = zeros(2, 6, numel(t_casadi));
 
 
 S(:,:, end) = Q;
 K(:,:, end) = R\B(:,:, end)'*S(:,:, end);
 
-for i = (numel(t_star) - 1):-1:1    
+for i = (numel(t_casadi) - 1):-1:1    
     K(:,:,i) = (B(:,:,i)'*S(:,:,i+1)*B(:,:,i) + R)\(B(:,:,i)'*S(:,:,i+1)*A(:,:,i));
     S(:,:,i) = A(:,:,i)'*S(:,:,i+1)*(A(:,:,i) - B(:,:,i)*K(:,:,i)) + Q;
 end
@@ -119,11 +124,40 @@ end
 K = -squeeze(K);
 
 %Create timeseries
-K_TS = timeseries(K, t_casadi);
-x_star_TS = timeseries(x, t_casadi);
+K_TS = timeseries(K, t_casadi10);
+x_star_TS = timeseries(x, t_casadi10);
 
-u_star1_TS = timeseries(u1, t_casadi);
-u_star2_TS = timeseries(u2, t_casadi);
+u_star1_TS = timeseries(u1, t_casadi10);
+u_star2_TS = timeseries(u2, t_casadi10);
+
+
+%% ZeroState stabilization
+A_reg_lin = zeros(6, 6);
+B_reg_lin = zeros(6, 2);
+
+x0_reg = [pi; 0; 0; 0; 0.0873; 0];
+% Matrix A continuous linearized
+A_reg_lin(1,2)= 1;
+A_reg_lin(2,2)=-cl;
+A_reg_lin(2,3)=bl*sin(x0_reg(3))*sin(x0_reg(5))*0; 
+A_reg_lin(2,5)=-bl*cos(x0_reg(3))*cos(x0_reg(5))*0; 
+A_reg_lin(3,4)=1;
+A_reg_lin(4,3) = -ae1*cos(x0_reg(3))-ae2*cos(x0_reg(3))*cos(x0_reg(5));
+A_reg_lin(4,4)=-ce;
+A_reg_lin(4,5)=ae2*sin(x0_reg(3))*sin(x0_reg(5))-be*sin(x0_reg(5))*0;   
+A_reg_lin(5,6)=1;
+A_reg_lin(6,3)=at*sin(x0_reg(3))*sin(x0_reg(5));
+A_reg_lin(6,5)=-at*cos(x0_reg(3))*cos(x0_reg(5));
+A_reg_lin(6,6)=-ct;
+
+B_reg_lin(2,1)=-bl*cos(x0_reg(3))*sin(x0_reg(5));
+B_reg_lin(4,1)=be*cos(x0_reg(5));
+B_reg_lin(6,2)=bt;
+
+
+Q_REG = diag([1 0 2000 0 120 0]);
+R_REG = diag([10 10]);
+K_REG = lqr(A_reg_lin, B_reg_lin, Q_REG, R_REG)
 
 
 
