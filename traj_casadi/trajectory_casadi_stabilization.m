@@ -63,33 +63,43 @@ u2=u_casadi(:,2);
 
 Q = diag([1000 2 1 1 100 1]); % state
 % R =0.01*eye(2); % control
-R = 0.001*diag([100 1]);
+R = 0.001*diag([1 1]);
 
 
 % Linearization around the optimal trajectory
 % x := [travel; Dtravel; elev; Delev; pitch; Dpitch]
+A_cont_lin = zeros(6, 6, numel(t_casadi));
+B_cont_lin = zeros(6, 2, numel(t_casadi));
+
 A = zeros(6, 6, numel(t_casadi));
 B = zeros(6, 2, numel(t_casadi));
+TS = Tf_casadi/5000;
 
 for i=1:numel(t_star)
-    % Matrix A
-    A(1,2,i)= 1;
-    A(2,2,i)=-cl;
-    A(2,3,i)=bl*sin(x(i,3))*sin(x(i,5))*u1(i); 
-    A(2,5,i)=-bl*cos(x(i,3))*cos(x(i,5))*u1(i); 
-    A(3,4,i)=1;
-    A(4,3,i) = -ae1*cos(x(i,3))-ae2*cos(x(i,3))*cos(x(i,5));
-    A(4,4,i)=-ce;
-    A(4,5,i)=ae2*sin(x(i,3))*sin(x(i,5))-be*sin(x(i,5))*u1(i);   
-    A(5,6,i)=1;
-    A(6,3,i)=at*sin(x(i,3))*sin(x(i,5));
-    A(6,5,i)=-at*cos(x(i,3))*cos(x(i,5));
-    A(6,6,i)=-ct;
+    % Matrix A continuous linearized
+    A_cont_lin(1,2,i)= 1;
+    A_cont_lin(2,2,i)=-cl;
+    A_cont_lin(2,3,i)=bl*sin(x(i,3))*sin(x(i,5))*u1(i); 
+    A_cont_lin(2,5,i)=-bl*cos(x(i,3))*cos(x(i,5))*u1(i); 
+    A_cont_lin(3,4,i)=1;
+    A_cont_lin(4,3,i) = -ae1*cos(x(i,3))-ae2*cos(x(i,3))*cos(x(i,5));
+    A_cont_lin(4,4,i)=-ce;
+    A_cont_lin(4,5,i)=ae2*sin(x(i,3))*sin(x(i,5))-be*sin(x(i,5))*u1(i);   
+    A_cont_lin(5,6,i)=1;
+    A_cont_lin(6,3,i)=at*sin(x(i,3))*sin(x(i,5));
+    A_cont_lin(6,5,i)=-at*cos(x(i,3))*cos(x(i,5));
+    A_cont_lin(6,6,i)=-ct;
     
-    %Matrix B
-    B(2,1,i)=-bl*cos(x(i,3))*sin(x(i,5));
-    B(4,1,i)=be*cos(x(i,5));
-    B(6,2,i)=bt;
+    %Matrix A discretized
+    A(:,:,i) = eye(6) + TS * A_cont_lin(:,:,i);
+    
+    %Matrix B continuous linearized
+    B_cont_lin(2,1,i)=-bl*cos(x(i,3))*sin(x(i,5));
+    B_cont_lin(4,1,i)=be*cos(x(i,5));
+    B_cont_lin(6,2,i)=bt;
+    
+    %Matrix B discretized
+    B(:,:,i) = TS * B_cont_lin(:,:,i);
     
 end
 
