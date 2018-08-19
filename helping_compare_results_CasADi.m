@@ -27,26 +27,31 @@ title('Experimental results in closed loop');
 subplot(3,1,1)
 plot(t, hf(TM.x_des(:,1)), 'k-.');
 hold on;
-plot(t, hf(TM.x_real(:,1)), 'linewidth', 2);
-legend('desired', 'real')
+plot(t, hf(TM.x_real(:,1)), 'linewidth', 1.5, 'color', '0.8500    0.3250    0.0980');
+legend('desired', 'real', 'location', 'se')
 xlabel('t [s]');
-ylabel('\lambda - travel [\circ]','FontSize',16);
+ylabel('\lambda - travel [\circ]','FontSize',12);
+axis([0 18 0 200]);
 
 subplot(3,1,2)
 plot(t, hf(TM.x_des(:,2)), 'k-.');
 hold on;
-plot(t, hf(TM.x_real(:,3)), 'linewidth', 2);
-legend('desired', 'real')
+plot(t, hf(TM.x_real(:,3)), 'linewidth', 1.5, 'color', '0.8500    0.3250    0.0980');
+legend('desired', 'real', 'location', 'se')
 xlabel('t [s]');
-ylabel('\epsilon - elevation [\circ]', 'FontSize',16);
+ylabel('\epsilon - elevation [\circ]', 'FontSize',12);
+axis([0 18 -8 12]);
+
 
 subplot(3,1,3)
 plot(t, hf(TM.x_des(:,3)), 'k-.');
 hold on;
-plot(t, hf(TM.x_real(:,5)), 'linewidth', 2);
-legend('desired', 'real')
+plot(t, hf(TM.x_real(:,5)), 'linewidth', 1.5, 'color', '0.8500    0.3250    0.0980');
+legend('desired', 'real', 'location', 'se')
 xlabel('t [s]');
-ylabel('\theta - pitch [\circ]', 'FontSize',16);
+ylabel('\theta - pitch [\circ]', 'FontSize',12);
+axis([0 18 -110 110]);
+
 
     function res = hf(u)
         res = rad2deg(u);

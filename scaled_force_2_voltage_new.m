@@ -1,7 +1,10 @@
-function [ v_i ] = scaled_force_2_voltage_new( f_tilde )
+function [ v_i ] = scaled_force_2_voltage_new( f_tilde, par_force )
 % Only fitted by 2nd degree polynomial, which seems to be OK in cftool
-p_p = 0.002541; 
-p_n = -0.00975;
+
+% p_p = par_force.par_pos;
+% p_n = par_force.par_neg;
+p_p = 0.002541000000000;
+p_n = -9.750000000000000e-04;
 
 v_i = zeros(size(f_tilde));
 

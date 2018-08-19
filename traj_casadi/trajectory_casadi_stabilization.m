@@ -157,7 +157,7 @@ B_reg_lin(6,2)=bt;
 
 Q_REG = diag([1 0 2000 0 120 0]);
 R_REG = diag([10 10]);
-K_REG = lqr(A_reg_lin, B_reg_lin, Q_REG, R_REG)
+K_REG = lqr(A_reg_lin, B_reg_lin, Q_REG, R_REG);
 
 
 

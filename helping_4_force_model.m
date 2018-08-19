@@ -12,3 +12,23 @@ sin_eps_tot_scaled = sin_eps_tot/sin_eps_tot(end);
 
 
 plot(vs_tot, sin_eps_tot_scaled);
+
+
+%% Plotting for report
+plot(vs_tot(12:end), sin_eps_tot_scaled(12:end), 'k+');
+hold on;
+plot(vs_tot(1:12), sin_eps_tot_scaled(1:12), 'k+');
+
+plot(vs_tot(12:end), 0.002541*vs_tot(12:end).^2, 'r--', 'linewidth', 1);
+plot(vs_tot(1:12)  , -0.000975*vs_tot(1:12).^2, 'r--', 'linewidth', 1);
+axis([-20 20 -0.4 1]);
+grid on;
+
+xlabel('v_s[V]');
+ylabel('$\tilde{f_s}$[-]', 'Interpreter', 'latex', 'FontSize', 18)
+
+text(-18, 0.85, '+', 'Color', 'black', 'FontSize', 14);
+text(-14, 0.85, 'measured samples', 'Color', 'black', 'FontSize', 12);
+
+text(-18, 0.75, '----', 'Color', 'red', 'FontSize', 14);
+text(-14, 0.75, 'fit', 'Color', 'red', 'FontSize', 12);

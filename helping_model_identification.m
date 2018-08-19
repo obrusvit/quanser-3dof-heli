@@ -63,6 +63,6 @@ opt.SearchOption.MaxIter = 20;
 %% Compare results
 % compare(data, model);
 % compare(data_MF1, model);
-compare(data, model);
+compare(data_MF4, model);
 
  

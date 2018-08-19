@@ -3,7 +3,7 @@ close all;clc;
 %% Initial conditions
 %[travel, dtravel, elev, delev, pitch, dpitch]
 % x0 = [0; 0; 0.1745; 0; -0.1047; 0];
-% x0 = [0; 0; 0.1745; 0; 0; 0];
+% x0 = [0; 0; 0.1749; 0; 0; 0];
 x0 = [0; 0; 0; 0; 0; 0];
 
 %% Loading parameters of control model
@@ -21,15 +21,15 @@ bt =    model.Parameters(9).Value;
 
 %% Setting up struct with identified parameters
 par_id = struct;
-par_id.cl = cl;
-par_id.bl = bl;
-par_id.ae1 = ae1;
-par_id.ae2 = ae2;
-par_id.ce = ce;
-par_id.be = be;
-par_id.at = at;
-par_id.ct = ct;
-par_id.bt = bt;
+par_id.cl = model.Parameters(1).Value;
+par_id.bl = model.Parameters(2).Value;
+par_id.ae1 = model.Parameters(3).Value;
+par_id.ae2 = model.Parameters(4).Value;
+par_id.ce = model.Parameters(5).Value;
+par_id.be = model.Parameters(6).Value;
+par_id.at = model.Parameters(7).Value;
+par_id.ct = model.Parameters(8).Value;
+par_id.bt = model.Parameters(9).Value;
           
 %% Setting up struct with control parameters
 % par_ctrl = struct;
